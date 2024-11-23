@@ -9,17 +9,16 @@ using namespace std;
 
 // Estructura que define los datos básicos de una persona
 struct Persona {
-    string nombre;          // Nombre completo de la persona
-    string dui;             // Documento Único de Identidad (DUI) de la persona
-    int edad;               // Edad de la persona
-    string telefono;        // Número de teléfono de la persona
-    string lugarTrabajo;    // Lugar donde trabaja la persona
-    string correo;          // Correo electrónico de la persona
-    string direccion;       // Dirección de residencia de la persona
+    string nombre;
+    string dui; 
+    int edad;
+    string telefono;
+    string lugarTrabajo;
+    string correo;
+    string direccion;
 };
 
-// Función para guardar mensajes en un archivo llamado "registro_de_mensajes.txt"
-// Sirve para mantener un registro de todos los comandos ingresados por el usuario.
+// Función para guardar mensajes
 void guardarMensaje(const string& mensaje) {
     ofstream archivo("registro_de_mensajes.txt", ios::app); // Abre el archivo en modo de agregar
     if (archivo.is_open()) {
@@ -65,8 +64,7 @@ void mostrarArchivo(const string& nombreArchivo) {
     }
 }
 
-// Función para convertir una cadena a mayúsculas
-// Esto es útil para comparar comandos del usuario sin importar el formato.
+// Función para convertir una cadena a mayúsculas útil para comparar comandos del usuario sin importar el formato.
 string convertirMayusculas(const string& entrada) {
     string mayuscula = entrada; // Copia la entrada original
     // Convierte cada carácter a mayúscula
@@ -75,10 +73,8 @@ string convertirMayusculas(const string& entrada) {
 }
 
 // Función para permitir al usuario ingresar datos de una persona
-// Los datos se guardan en el archivo "datos_personales.txt".
 void ingresarDatosPersona() {
     Persona persona;
-    // Solicita al usuario que ingrese cada campo de la estructura Persona
     cout << "Ingrese el nombre completo: ";
     getline(cin, persona.nombre);
     cout << "Ingrese el DUI: ";
@@ -99,13 +95,12 @@ void ingresarDatosPersona() {
 }
 
 // Función para actualizar los datos de una persona en "datos_personales.txt"
-// Busca el registro basado en el DUI y permite modificar los datos.
 void actualizarDatosPersona(const string& dui) {
     ifstream archivoEntrada("datos_personales.txt"); // Archivo original
     ofstream archivoTemporal("temp.txt"); // Archivo temporal para guardar cambios
 
     if (!archivoEntrada.is_open() || !archivoTemporal.is_open()) {
-        cerr << "No se pudo abrir el archivo." << endl; // Error si no se pueden abrir
+        cerr << "No se pudo abrir el archivo." << endl;
         return;
     }
 
@@ -150,6 +145,7 @@ void actualizarDatosPersona(const string& dui) {
         }
     }
 
+    //cierra los archivos
     archivoEntrada.close();
     archivoTemporal.close();
 
@@ -211,7 +207,7 @@ void calcularSuma() {
     for (int i = 0; i < cuantas; i++) {
         cout << "Número " << (i + 1) << ": ";
         cin >> numero;
-        suma += numero; // Acumula la suma
+        suma += numero; 
     }
     cout << "La suma de los " << cuantas << " números es: " << suma << endl;
 }
@@ -248,14 +244,14 @@ int main() {
             cout << "- INGRESO DE DATOS: Registrar nueva persona.\n";
             cout << "- ACTUALIZAR DATOS: Modificar los datos de una persona.\n";
             cout << "- BORRAR DATOS: Eliminar un registro por DUI.\n";
-            cout << "- MOSTRAR DATOS PERSONALES: Mostrar todos los registros.\n";
+            cout << "- MOSTRAR DATOS PERSONALES: Mostrar todos los datos registrados.\n";
             cout << "- SUMA: Calcular la suma de varios números.\n";
             cout << "- SALIR: Terminar el programa.\n";
         } else if (comando == "SALIR") {
-            cout << "OK. Bye!" << endl;
-            break; // Sale del bucle
+            cout << "OK. Bye! :)" << endl;
+            break;
         } else {
-            cout << "Comando no reconocido. Prueba con 'AYUDA' para ver los comandos disponibles.\n";
+            cout << "Comando no reconocido. Escribe 'AYUDA' para ver los comandos disponibles.\n";
         }
     }
 
