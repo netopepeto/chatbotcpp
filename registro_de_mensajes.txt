@@ -1,39 +1,10 @@
-Comando: Mostrar datos ingresados
-Comando: salir
-Comando: mostrar lista de mensajes
-Comando: mostrar lista
 Comando: hola
-Comando: Hola
-Comando: salir
+Comando: ayuda
+Comando: mostrar datos personales
+Comando: modificar datos
+Comando: Mostrar datos personales
+Comando: Borrar datos
+Comando: 0578880176
+Comando: borrar datos
 Comando: mostrar datos personales
 Comando: salir
-Comando: hola
-Comando: Hola
-Comando: HOLA
-Comando: Hola
-Comando: salir
-Comando: hola
-Comando: salir
-Comando: Cómo estás
-Comando: como estoas
-Comando: como estas
-Comando: salir
-Comando: hola
-Comando: En nada
-Comando: 
-Comando: salir
-Comando: hola
-Comando: EN nada
-Comando: como estas
-Comando: Muy bien
-Comando: bien
-Comando: ingresar 
-Comando: salir
-Comando: 1
-Comando: 2
-Comando: uno
-Comando: salir
-Comando: suma
-Comando: 
-Comando: salir
-Comando: suma

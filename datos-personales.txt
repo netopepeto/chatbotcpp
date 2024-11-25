@@ -1,8 +1,0 @@
-Nombre: Edwin
-DUI: 05050505
-Edad: 25
-Teléfono: 64538563
-Lugar de Trabajo: Freund
-Correo: edro
-Dirección: Opico
-------------------------
