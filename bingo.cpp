@@ -7,6 +7,11 @@
 
 using namespace std;
 
+//Función para limpiar pantalla
+void clear(){
+    cout << "\033[2J\033[1;1H";
+}
+
 // Función para convertir una cadena a mayúsculas
 string convertirMayusculas(const string& entrada) {
     string mayuscula = entrada;
@@ -55,7 +60,7 @@ void guardarDatosPersona(const Persona& persona) {
     }
 }
 
-// Función para mostrar el contenido del archivo
+// Función para mostrar los datos del archivo
 void mostrarArchivo(const string& nombreArchivo) {
     ifstream archivo(nombreArchivo); 
     if (archivo.is_open()) {
@@ -246,6 +251,20 @@ int main() {
         } else if (comando == "SALIR") {
             cout << "OK. Bye! :)" << endl;
             break;
+        }
+        else if (comando == "HOLA"){
+            cout << "Bingo3000: ¡Hola! ¿En qué puedo ayudarte?" << endl;
+        }
+        else if(comando == "LIMPIAR PANTALLA"){
+            clear();
+        }
+        // Nueva interacción: ¿Cómo estás?
+        else if (comando == "COMO ESTAS" || comando.find("COMO ESTAS") != string::npos) {
+            cout << "Bingo3000: ¡Estoy bien, gracias por preguntar! ¿Y tú?" << endl;
+        } 
+        // Nueva interacción: ¿Qué edad tienes?
+        else if (comando == "QUE EDAD TIENES" || comando.find("QUE EDAD TIENES") != string::npos) {
+            cout << "Bingo3000: No tengo edad física, soy un programa de computadora." << endl;
         } else {
             cout << "Comando no reconocido. Escribe 'AYUDA' para ver los comandos disponibles.\n";
         }

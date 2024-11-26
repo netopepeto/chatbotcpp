@@ -8,3 +8,17 @@ Comando: 0578880176
 Comando: borrar datos
 Comando: mostrar datos personales
 Comando: salir
+Comando: HOla
+Comando: hola
+Comando: HOL:A
+Comando: HOLA
+Comando: salir
+Comando: hola
+Comando: como estas
+Comando: bien
+Comando: salir
+Comando: limpiar pantalla
+Comando: hola
+Comando: ayuda
+Comando: mostrar datos personales
+Comando: salir
