@@ -1,9 +1,13 @@
-Nombre: Emely Lisseth Rivera Marin
-DUI: 064896352
-Edad: 21
-Teléfono: 74148569
+----------- Datos -------------
+Nombre: Edwin Ernesto Rodríguez Pérez
+----------- Datos -------------
+Nombre: Emely Lisseth Rivera Marín
+DUI: 087545236
+Edad: 22
+Teléfono: 74145555
 Lugar de Trabajo: UTEC
-Correo: riveramarin45852@gmail.com
+Correo: emely@gmail.com
 Dirección: SJO
-------------------------
-
+------------------------------
+----------- Datos -------------
+Nombre: José Ernesto De Paz

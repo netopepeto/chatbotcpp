@@ -22,3 +22,43 @@ Comando: hola
 Comando: ayuda
 Comando: mostrar datos personales
 Comando: salir
+Comando: hola
+Comando: como estas?
+Comando: bien
+Comando: ayuda
+Comando: ingreso de datos
+Comando: limpiar pantalla
+Comando: ayuda
+Comando: mostrar datos personales
+Comando: borrar datos
+Comando: mostrar datos personales
+Comando: limpiar pantalla
+Comando: mostrar datos personales
+Comando: salir
+Comando: limpiar pantalla
+Comando: ayuda
+Comando: ingreso de datos
+Comando: mostrar datos
+Comando: mostrar datos personales
+Comando: limpiar pantalla
+Comando: ayuda
+Comando: borrar datos
+Comando: mostrar datos personales
+Comando: salir
+Comando: ingreso de Datos
+Comando: Mostrar archivos
+Comando: ayuda
+Comando: mostrar datos Personales
+Comando: limpiar pantalla
+Comando: mostrar registro de mensajes
+Comando: limpiar pantalla
+Comando: ayuda
+Comando: mostrar datos personales
+Comando: borrar datos
+Comando: borrar datos
+Comando: mostrar datos personales
+Comando: limpiar pantalla
+Comando: hola
+Comando: como estás?
+Comando: limpiar pantalla
+Comando: salir

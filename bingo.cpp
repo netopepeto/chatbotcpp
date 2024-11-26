@@ -30,17 +30,6 @@ struct Persona {
     string direccion;
 };
 
-// Función para guardar mensajes
-void guardarMensaje(const string& mensaje) {
-    ofstream archivo("registro_de_mensajes.txt", ios::app);
-    if (archivo.is_open()) {
-        archivo << mensaje << endl;
-        archivo.close(); // Cierra el archivo
-    } else {
-        cerr << "No se pudo abrir el archivo de mensajes." << endl;
-    }
-}
-
 // Función para guardar los datos de una persona en "datos_personales.txt"
 void guardarDatosPersona(const Persona& persona) {
     ofstream archivo("datos_personales.txt", ios::app);
@@ -68,13 +57,13 @@ void mostrarArchivo(const string& nombreArchivo) {
         while (getline(archivo, linea)) {
             cout << linea << endl; 
         }
-        archivo.close(); // Cierra el archivo
+        archivo.close();
     } else {
         cerr << "No se pudo abrir el archivo " << nombreArchivo << endl; // Error si no se puede abrir
     }
 }
 
-// Función para permitir al usuario ingresar datos de una persona
+// Función para ingresar datos de una persona
 void ingresarDatosPersona() {
     Persona persona;
     cout << "Ingrese el nombre completo: ";
@@ -131,14 +120,14 @@ void actualizarDatosPersona(const string& dui) {
             getline(cin, personaActualizada.direccion);
 
             // Escribir los datos modificados en el archivo temporal
-            archivoTemporal << "Nombre: " << personaActualizada.nombre << endl;
             archivoTemporal << "DUI: " << dui << endl;
+            archivoTemporal << "Nombre: " << personaActualizada.nombre << endl;
             archivoTemporal << "Edad: " << personaActualizada.edad << endl;
             archivoTemporal << "Teléfono: " << personaActualizada.telefono << endl;
             archivoTemporal << "Lugar de Trabajo: " << personaActualizada.lugarTrabajo << endl;
             archivoTemporal << "Correo: " << personaActualizada.correo << endl;
             archivoTemporal << "Dirección: " << personaActualizada.direccion << endl;
-            archivoTemporal << "------------------------" << endl;
+            archivoTemporal << "-------------modificado-----------" << endl;
 
             // Salta las siguientes 6 líneas del archivo original (registro viejo)
             for (int i = 0; i < 6; ++i) getline(archivoEntrada, linea);
@@ -161,7 +150,7 @@ void actualizarDatosPersona(const string& dui) {
     }
 }
 
-// Función para eliminar un registro completo basado en el DUI
+// Función para eliminar un registro completo segun DUI
 void borrarDatosPersona(const string& dui) {
     ifstream archivoEntrada("datos_personales.txt");
     ofstream archivoTemporal("temp.txt");
@@ -213,6 +202,17 @@ void calcularSuma() {
     cout << "La suma de los " << cuantas << " números es: " << suma << endl;
 }
 
+//Guardar mensajes
+void guardarMensaje(const string& mensaje) {
+    ofstream archivo("registro_de_mensajes.txt", ios::app);
+    if (archivo.is_open()) {
+        archivo << mensaje << endl;
+        archivo.close();
+    } else {
+        cerr << "No se pudo abrir el archivo de mensajes." << endl;
+    }
+}
+
 // Principal - Main
 int main() {
     string entrada;
@@ -240,6 +240,8 @@ int main() {
             mostrarArchivo("datos_personales.txt");
         } else if (comando == "SUMA") {
             calcularSuma();
+        } else if (comando == "MOSTRAR REGISTRO DE MENSAJES") {
+            mostrarArchivo("registro_de_mensajes.txt");
         } else if (comando == "AYUDA") {
             cout << "Comandos disponibles:\n";
             cout << "- INGRESO DE DATOS: Registra una nueva persona.\n";
@@ -254,8 +256,9 @@ int main() {
         }
         else if (comando == "HOLA"){
             cout << "Bingo3000: ¡Hola! ¿En qué puedo ayudarte?" << endl;
-        }
-        else if(comando == "LIMPIAR PANTALLA"){
+        }else if (comando == "MOSTRAR REGISTRO DE MENSAJES") {
+            mostrarArchivo("registro-de-mensajes.txt");
+        }else if(comando == "LIMPIAR PANTALLA"){
             clear();
         }
         // Nueva interacción: ¿Cómo estás?
