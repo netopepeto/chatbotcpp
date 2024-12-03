@@ -62,3 +62,97 @@ Comando: hola
 Comando: como estás?
 Comando: limpiar pantalla
 Comando: salir
+Comando: Hola
+Comando: Ingresar datos persona
+Comando: ayuda
+Comando: ingreso de datos
+Comando: Mostrar datos personales
+Comando: limpiar pantalla
+Comando: ayuda
+Comando: modificar datos
+Comando: mostrar datos personales
+Comando: ingresar datos personales
+Comando: limpiar pantalla
+Comando: ayuda
+Comando: ingreso de datos
+Comando: limpiar pantalla
+Comando: modificar datos
+Comando: modificar datos
+Comando: mostrar datos personales
+Comando: limpiar pantalla
+Comando: modificar datos
+Comando: modificar datos
+Comando: modificar datos
+Comando: modificar datos
+Comando: modificar datos
+Comando: modificar datos
+Comando: modificar datos
+Comando: Ingresar datos personales
+Comando: ayuda
+Comando: Ingreso de datos
+Comando: mostrar datos personales
+Comando: limpiar pantalla
+Comando: modificar datos
+Comando: mostrar datos personales
+Comando: Mostrar datos personales
+Comando: modificar datos
+Comando: modificar datos
+Comando: limpiar pantalla
+Comando: mostrar datos personales
+Comando: ingresar datos personales
+Comando: ingresar datos
+Comando: ayuda
+Comando: ingreso de datos
+Comando: mostrar datos personales
+Comando: ayuda
+Comando: Ingreso de datos
+Comando: ingresar datos personales
+Comando: mostrar datos personales
+Comando: mostrar datos personales
+Comando: modificar datos
+Comando: limpiar pantalla
+Comando: mostrar datos personales
+Comando: limpiar pantalla
+Comando: mostrar datos personales
+Comando: modificar datos
+Comando: mostrar datos personales
+Comando: limpiar pantalla
+Comando: modificar datos
+Comando: mostrar datos personales
+Comando: modificar datos
+Comando: mostrar datos personales
+Comando: limpiar pantalla
+Comando: ingresar datos personales
+Comando: mostrar datos personales
+Comando: eliminar datos
+Comando: ayuda
+Comando: borrar datos
+Comando: mostrar datos personales
+Comando: mostrar datos personales
+Comando: ingresar datos personales
+Comando: mostrar datos personale
+Comando: mostrar datos personales
+Comando: borrar datos
+Comando: mostrar datos personales
+Comando: mostrar datos personales
+Comando: limpiar pantalla
+Comando: ingresar datos
+Comando: ingresar datos personales
+Comando: ingresar datos personales
+Comando: Modificar datos
+Comando: mostrar datos personales
+Comando: modificar datos
+Comando: mostrar datos personales
+Comando: mostrar datos personales
+Comando: borrar datos
+Comando: mostrar datos personales
+Comando: limpiar pantalla
+Comando: salir
+Comando: mostrar datos personales
+Comando: [A[B[B[B
+Comando: salir
+Comando: mostrar datos personales
+Comando: borrar datos
+Comando: mostrar datos personales
+Comando: limpiar pantalla
+Comando: salir

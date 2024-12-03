@@ -21,8 +21,8 @@ string convertirMayusculas(const string& entrada) {
 
 // Estructura datos de persona
 struct Persona {
+    string dui;
     string nombre;
-    string dui; 
     int edad;
     string telefono;
     string lugarTrabajo;
@@ -35,8 +35,8 @@ void guardarDatosPersona(const Persona& persona) {
     ofstream archivo("datos_personales.txt", ios::app);
     if (archivo.is_open()) {
         archivo << "----------- Datos -------------" << endl;
-        archivo << "Nombre: " << persona.nombre << endl;
         archivo << "DUI: " << persona.dui << endl;
+        archivo << "Nombre: " << persona.nombre << endl;
         archivo << "Edad: " << persona.edad << endl;
         archivo << "Teléfono: " << persona.telefono << endl;
         archivo << "Lugar de Trabajo: " << persona.lugarTrabajo << endl;
@@ -49,27 +49,14 @@ void guardarDatosPersona(const Persona& persona) {
     }
 }
 
-// Función para mostrar los datos del archivo
-void mostrarArchivo(const string& nombreArchivo) {
-    ifstream archivo(nombreArchivo); 
-    if (archivo.is_open()) {
-        string linea;
-        while (getline(archivo, linea)) {
-            cout << linea << endl; 
-        }
-        archivo.close();
-    } else {
-        cerr << "No se pudo abrir el archivo " << nombreArchivo << endl; // Error si no se puede abrir
-    }
-}
 
 // Función para ingresar datos de una persona
 void ingresarDatosPersona() {
     Persona persona;
-    cout << "Ingrese el nombre completo: ";
-    getline(cin, persona.nombre);
     cout << "Ingrese el DUI: ";
     getline(cin, persona.dui);
+    cout << "Ingrese el nombre completo: ";
+    getline(cin, persona.nombre);
     cout << "Ingrese la edad: ";
     cin >> persona.edad;
     cin.ignore();
@@ -81,11 +68,24 @@ void ingresarDatosPersona() {
     getline(cin, persona.correo);
     cout << "Ingrese la dirección de su residencia: ";
     getline(cin, persona.direccion);
-
     guardarDatosPersona(persona);
 }
 
-// Función para modificar los datos de una persona en "datos_personales.txt"
+// Función para mostrar los datos del archivo
+void mostrarArchivo(const string& nombreArchivo) {
+    ifstream archivo(nombreArchivo); 
+    if (archivo.is_open()) {
+        string linea;
+        while (getline(archivo, linea)) {
+            cout << linea << endl; 
+        }
+        archivo.close();
+    } else {
+        cerr << "No se pudo abrir el archivo " << nombreArchivo << endl;
+    }
+}
+
+/* Función para modificar los datos de una persona en "datos_personales.txt"
 void actualizarDatosPersona(const string& dui) {
     ifstream archivoEntrada("datos_personales.txt"); 
     ofstream archivoTemporal("temp.txt");
@@ -149,6 +149,101 @@ void actualizarDatosPersona(const string& dui) {
         cout << "DUI no encontrado.\n";
     }
 }
+*/
+
+//Nueva función
+void actualizarDatosPersona(const string& dui) {
+    ifstream archivoEntrada("datos_personales.txt"); 
+    ofstream archivoTemporal("temp.txt");
+
+    if (!archivoEntrada.is_open() || !archivoTemporal.is_open()) {
+        cerr << "No se pudo abrir el archivo." << endl;
+        return;
+    }
+
+    string linea;
+    Persona personaActualizada;
+    bool encontrado = false;
+
+    while (getline(archivoEntrada, linea)) {
+        // Buscar el registro por el DUI
+        if (linea.find("DUI: " + dui) != string::npos) {
+            encontrado = true;
+            cout << "---------- Datos Actuales -----------" << endl;
+           personaActualizada.dui = dui;
+           getline(archivoEntrada, linea); // Nombre
+           personaActualizada.nombre = linea.substr(linea.find(": ") + 2);
+           getline(archivoEntrada, linea); // Edad
+           personaActualizada.edad = stoi(linea.substr(linea.find(": ") + 2));
+           getline(archivoEntrada, linea); // Teléfono
+           personaActualizada.telefono = linea.substr(linea.find(": ") + 2);
+           getline(archivoEntrada, linea); // Lugar de Trabajo
+           personaActualizada.lugarTrabajo = linea.substr(linea.find(": ") + 2);
+           getline(archivoEntrada, linea); // Correo
+           personaActualizada.correo = linea.substr(linea.find(": ") + 2);
+           getline(archivoEntrada, linea); // Dirección
+           personaActualizada.direccion = linea.substr(linea.find(": ") + 2);
+
+            // Mostrar datos actuales
+            cout << "Nombre: " << personaActualizada.nombre << endl;
+            cout << "Edad: " << personaActualizada.edad << endl;
+            cout << "Teléfono: " << personaActualizada.telefono << endl;
+            cout << "Lugar de Trabajo: " << personaActualizada.lugarTrabajo << endl;
+            cout << "Correo: " << personaActualizada.correo << endl;
+            cout << "Dirección: " << personaActualizada.direccion << endl;
+
+            // Permitir edición de cada campo
+            cout << "\nIngresa nuevos datos o presiona Enter para mantener el valor actual:\n";
+            cout << "Nombre [" << personaActualizada.nombre << "]: ";
+            string input;
+            getline(cin, input);
+            if (!input.empty()) personaActualizada.nombre = input;
+            cout << "Edad [" << personaActualizada.edad << "]: ";
+            getline(cin, input);
+            if (!input.empty()) personaActualizada.edad = stoi(input);
+            cout << "Teléfono [" << personaActualizada.telefono << "]: ";
+            getline(cin, input);
+            if (!input.empty()) personaActualizada.telefono = input;
+            cout << "Lugar de Trabajo [" << personaActualizada.lugarTrabajo << "]: ";
+            getline(cin, input);
+            if (!input.empty()) personaActualizada.lugarTrabajo = input;
+            cout << "Correo [" << personaActualizada.correo << "]: ";
+            getline(cin, input);
+            if (!input.empty()) personaActualizada.correo = input;
+            cout << "Dirección [" << personaActualizada.direccion << "]: ";
+            getline(cin, input);
+            if (!input.empty()) personaActualizada.direccion = input;
+            // Escribir los datos actualizados en el archivo temporal
+            archivoTemporal << "----------- Datos -------------" << endl;
+            archivoTemporal << "DUI: " << personaActualizada.dui << endl;
+            archivoTemporal << "Nombre: " << personaActualizada.nombre << endl;
+            archivoTemporal << "Edad: " << personaActualizada.edad << endl;
+            archivoTemporal << "Teléfono: " << personaActualizada.telefono << endl;
+            archivoTemporal << "Lugar de Trabajo: " << personaActualizada.lugarTrabajo << endl;
+            archivoTemporal << "Correo: " << personaActualizada.correo << endl;
+            archivoTemporal << "Dirección: " << personaActualizada.direccion << endl;
+            archivoTemporal << "------------------------------" << endl;
+
+            // Salta las líneas restantes del registro original
+            for (int i = 0; i < 7; ++i) getline(archivoEntrada, linea);
+        } else {
+            archivoTemporal << linea << endl; // Copia las líneas no modificadas
+        }
+    }
+
+    archivoEntrada.close();
+    archivoTemporal.close();
+
+    if (encontrado) {
+        remove("datos_personales.txt");
+        rename("temp.txt", "datos_personales.txt");
+        cout << "Datos actualizados correctamente.\n";
+    } else {
+        remove("temp.txt");
+        cout << "DUI no encontrado.\n";
+    }
+}
+
 
 // Función para eliminar un registro completo segun DUI
 void borrarDatosPersona(const string& dui) {
@@ -164,12 +259,12 @@ void borrarDatosPersona(const string& dui) {
     bool encontrado = false;
 
     while (getline(archivoEntrada, linea)) {
-        if (linea.find("DUI: " + dui) != string::npos) {
+        if (linea.find("DUI: " + dui)) {
             encontrado = true;
             // Salta las siguientes 6 líneas para omitir el registro
-            for (int i = 0; i < 6; ++i) getline(archivoEntrada, linea);
+            for (int i = 0; i < 7; ++i) getline(archivoEntrada, linea);
         } else {
-            archivoTemporal << linea << endl; // Copia las líneas no eliminadas
+            archivoTemporal << linea << endl;
         }
     }
 
@@ -224,7 +319,7 @@ int main() {
         guardarMensaje("Comando: " + entrada); 
         string comando = convertirMayusculas(entrada);
 
-        if (comando == "INGRESO DE DATOS") {
+        if (comando == "INGRESAR DATOS PERSONALES") {
             ingresarDatosPersona();
         } else if (comando == "MODIFICAR DATOS") {
             string dui;
@@ -244,7 +339,7 @@ int main() {
             mostrarArchivo("registro_de_mensajes.txt");
         } else if (comando == "AYUDA") {
             cout << "Comandos disponibles:\n";
-            cout << "- INGRESO DE DATOS: Registra una nueva persona.\n";
+            cout << "- INGRESAR DATOS PERSONALES: Registra una nueva persona.\n";
             cout << "- MODIFICAR DATOS: Modificar los datos de una persona.\n";
             cout << "- BORRAR DATOS: Eliminar un registro por DUI.\n";
             cout << "- MOSTRAR DATOS PERSONALES: Mostrar todos los datos registrados.\n";
